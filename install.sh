@@ -94,13 +94,24 @@ fi
 #       So, it needs to be updated to the new name/link
 #       https://github.com/mgonzs13/yolo_ros.git
 #
-if [ ! -d "$ROS2_SRC/yolov8_ros" ]; then
+# if [ ! -d "$ROS2_SRC/yolov8_ros" ]; then
+#     cd $ROS2_SRC
+#     git clone https://github.com/mgonzs13/yolov8_ros.git
+#     cd $ROS2_SRC/yolov8_ros && git checkout 3.4.0
+# else
+#     cd $ROS2_SRC/yolov8_ros && git pull origin && git checkout 3.4.0
+# fi
+
+if [ ! -d "$ROS2_SRC/yolo_ros" ]; then
     cd $ROS2_SRC
-    git clone https://github.com/mgonzs13/yolov8_ros.git
-    cd $ROS2_SRC/yolov8_ros && git checkout 3.4.0
+    git clone https://github.com/mgonzs13/yolo_ros.git
+    cd $ROS2_SRC/yolo_ros && git checkout 4.0.1
 else
-    cd $ROS2_SRC/yolov8_ros && git pull origin && git checkout 3.4.0
+    cd $ROS2_SRC/yolo_ros && git pull origin && git checkout 4.0.1
 fi
+cd $ROS2_SRC/yolo_ros && \
+    pip3 install -r requirements.txt
+
 
 #
 # MAVROS
