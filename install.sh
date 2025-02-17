@@ -23,19 +23,19 @@ if [ ! -d "$ROS2_WS" ]; then
 fi
 
 SIM_PKG_URL=''
-if [[ -n "$GIT_USER" ]] && [[ -n "$GIT_TOKEN" ]]; then
-    SIM_PKG_URL=https://$GIT_USER:$GIT_TOKEN@github.com/mzahana/SMART-TRACK.git
-else
-    SIM_PKG_URL=https://github.com/mzahana/SMART-TRACK.git
-fi
+# if [[ -n "$GIT_USER" ]] && [[ -n "$GIT_TOKEN" ]]; then
+#     SIM_PKG_URL=https://$GIT_USER:$GIT_TOKEN@github.com/mzahana/SMART-TRACK.git
+# else
+#     SIM_PKG_URL=https://github.com/mzahana/SMART-TRACK.git
+# fi
 
 # Clone the SMART-TRACK if it doesn't exist
-if [ ! -d "$ROS2_SRC/smart_track" ]; then
-    cd $ROS2_SRC
-    git clone $SIM_PKG_URL smart_track && cd $ROS2_SRC/smart_track && git pull origin main
-else
-    cd $ROS2_SRC/smart_track && git pull origin main
-fi
+# if [ ! -d "$ROS2_SRC/smart_track" ]; then
+#     cd $ROS2_SRC
+#     git clone $SIM_PKG_URL smart_track && cd $ROS2_SRC/smart_track && git pull origin main
+# else
+#     cd $ROS2_SRC/smart_track && git pull origin main
+# fi
 
 # Clone and build PX4-Autopilot if it doesn't exist
 if [ ! -d "$PX4_DIR" ]; then

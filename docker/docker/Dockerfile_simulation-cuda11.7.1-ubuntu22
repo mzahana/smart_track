@@ -192,7 +192,7 @@ RUN pip3 install future
 #
 # PCL dependencies
 #
-RUN apt update && \
+RUN apt update && apt upgrade -y \
 	apt install -y ros-humble-cv-bridge \
 					ros-humble-image-geometry \
 					ros-humble-message-filters \
@@ -210,6 +210,10 @@ RUN apt update && \
 RUN apt update && apt install -y libpcl-dev libopencv-dev \
 	&& apt-get clean autoclean \
 	&& rm -rf /var/lib/apt/lists/{apt,dpkg,cache,log} /tmp/* /var/tmp/*
+
+
+# To fix colcon build error for smart_track
+RUN pip3 install "sphinx<7"
 
 
 # create and start as LOCAL_USER_ID

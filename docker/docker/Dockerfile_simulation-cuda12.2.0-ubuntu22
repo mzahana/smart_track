@@ -195,7 +195,7 @@ RUN pip3 install future
 #
 # PCL dependencies
 #
-RUN apt update && \
+RUN apt update && apt upgrade -y  \
 	apt install -y ros-humble-cv-bridge \
 					ros-humble-image-geometry \
 					ros-humble-message-filters \
@@ -213,7 +213,7 @@ RUN apt update && \
 RUN apt update && apt install -y libpcl-dev libopencv-dev \
 	&& apt-get clean autoclean \
 	&& rm -rf /var/lib/apt/lists/{apt,dpkg,cache,log} /tmp/* /var/tmp/*
-	
+
 # create and start as LOCAL_USER_ID
 COPY scripts/entrypoint.sh /usr/local/bin/entrypoint.sh
 ENTRYPOINT ["/usr/local/bin/entrypoint.sh"]
